@@ -1,0 +1,47 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+
+    }
+    repositories {
+        maven {
+            name = "GraphQL-itgr" //  optional target repository name
+            url = "http://my.org.server/repo/ur"
+            credentials {
+                username = 'sebastian'
+                password = 'password'
+            }
+        }
+    }
+}
+
+group 'co.edu.javeriana.graphql'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+
+}
+
+
+test {
+    useJUnitPlatform()
+}
